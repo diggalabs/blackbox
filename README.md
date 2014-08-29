@@ -9,7 +9,7 @@ Safely store secrets in Git/Hg for use by Puppet.
 Overview
 ========
 
-The goal is to have secret bits (passwords, private keys, and such) in your VCS repo but encrypted so that
+The goal is to have secret bits/assests (passwords, private keys, and such) in your VCS repo but encrypted so that
 it is safe.  On the puppet masters they sit on disk unencrypted but only readable by Puppet Master.
 
 How does this work?
@@ -19,7 +19,7 @@ How does this work?
 
 Files are kept in git/hg encrypted (foo.txt is stored as foo.txt.gpg).
 
-After deploying an update to your Puppet Master, the master runs a script that decrypts them.  They sit unencrypted on the master, which should already be locked down.
+After deploying an update to your Puppet Master, the master runs a script that decrypts them.  These sit unencrypted on the master, which should already be locked down.
 
 **Passwords (and any short string):**
 Passwords are kept in hieradata/blackbox.yaml.gpg, which is decrypted to become hieradata/blackbox.yaml.  This data can be read by hiera.  This file is encrypted/decrypted just like any other blackbox file.
